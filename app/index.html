@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typing Test</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  main{max-width:46rem}
+  .text{font:1.25rem/1.9 ui-monospace,Menlo,Consolas,monospace;padding:1rem;border:1px solid var(--line);border-radius:.75rem;background:var(--card);margin:.75rem 0;user-select:none;min-height:9rem}
+  .text .ok{color:var(--good)}.text .bad{color:var(--bad);background:color-mix(in srgb,var(--bad) 15%,transparent)}
+  .text .cur{border-left:2px solid var(--accent);margin-left:-2px}
+  .text .todo{color:var(--muted)}
+  #input{width:100%;font:1rem ui-monospace,Menlo,Consolas,monospace}
+  .big{font-size:1.4rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Typing Test</h1>
+  <p class="sub">Start typing in the box to begin the timer. Words per minute counts correct characters.</p>
+  <div class="row">
+    <label for="secs">Length</label>
+    <select id="secs"><option value="30">30 seconds</option><option value="60" selected>60 seconds</option><option value="120">2 minutes</option></select>
+    <button id="restart">New passage</button>
+  </div>
+  <div class="stats big"><span>Time <b id="time">60</b></span><span>WPM <b id="wpm">0</b></span><span>Accuracy <b id="acc">100%</b></span><span>Best <b id="best">0</b></span></div>
+  <div class="text" id="text" aria-hidden="true"></div>
+  <label class="sr-only" for="input">Type here</label>
+  <input id="input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here…">
+  <p class="msg" id="msg" role="status"></p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
